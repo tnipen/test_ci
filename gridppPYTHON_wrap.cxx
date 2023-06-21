@@ -2763,7 +2763,7 @@ namespace swig {
 }
 
 
-#include "gridpp.h"
+#include "include/gridpp.h"
 
 
 #include <float.h>

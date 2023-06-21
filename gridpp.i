@@ -1,6 +1,6 @@
 %module gridpp
 %{
-#include "gridpp.h"
+#include "include/gridpp.h"
 %}
 
-%include "gridpp.h"
+%include "include/gridpp.h"
