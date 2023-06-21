@@ -9,15 +9,15 @@ jobs:
     strategy:
       matrix:
         # os: [ubuntu-20.04, windows-2019, macos-11]
-        os: [ubuntu-20.04]
+        os: [ubuntu-20.04, windows-2019]
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.13.1
-        # env:
-        #   CIBW_SOME_OPTION: value
+        env:
+          CIBW_BUILD: cp36-manylinux_x86_64 cp36-win_amd64
         #    ...
         # with:
         #   package-dir: .
