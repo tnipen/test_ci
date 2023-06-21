@@ -6,7 +6,9 @@ namespace {
     typedef arma::vec vectype;
 }
 int gridpp::func(float x) {
-    arma::vec q;
+    int lS = 2;
+    arma::mat q(lS, lS, arma::fill::zeros);
+    arma::inv(q);
 
     return x + 1;
 }
