@@ -7,8 +7,8 @@ namespace {
 }
 int gridpp::func(float x) {
     int lS = 2;
-    arma::mat q(lS, lS, arma::fill::zeros);
-    arma::inv(q);
+    arma::mat q(lS, lS, arma::fill::randu);
+    arma::mat qq = arma::inv(q);
 
-    return x + 1;
+    return x + arma::det(qq);
 }
