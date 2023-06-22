@@ -3,16 +3,12 @@ name: Build
 on: [push, pull_request]
 
 jobs:
-  build_wheels:
-    name: Build wheels on ${{ matrix.os }}
+  setup:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # os: [ubuntu-20.04, windows-2019, macos-11]
-        os: [macos-11]
-
+        os: [ubuntu-20.04]
     steps:
-      - uses: actions/checkout@v3
       - name: dependencies
         run: |
             sudo apt update -qq
@@ -21,6 +17,18 @@ jobs:
         run: mkdir build && cd build && cmake ..
       - name: build
         run: cd build && VERBOSE=1 make package-python
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # os: [ubuntu-20.04, windows-2019, macos-11]
+        os: [ubuntu-20.04]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: ls
+        run: pwd && ls
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.13.1
         env:
