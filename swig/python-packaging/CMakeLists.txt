@@ -23,5 +23,6 @@ add_custom_target(package-python
     COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/src
     COMMAND ${CMAKE_COMMAND} -E copy ${CPP_INCLUDE_FILES} ${CMAKE_CURRENT_BINARY_DIR}/include
     COMMAND ${SWIG_EXECUTABLE} -python -outdir ${CMAKE_CURRENT_BINARY_DIR} -c++ -I./include -o ${CMAKE_CURRENT_BINARY_DIR}/gridppPYTHON_wrap.cxx ${SWIG_INTERFACE}
-    COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY_OUT} sdist --dist-dir ${CMAKE_BINARY_DIR}
+    # COMMAND ${PYTHON_EXECUTABLE} ${SETUP_PY_OUT} sdist --dist-dir ${CMAKE_BINARY_DIR}
+    COMMAND python ${SETUP_PY_OUT} sdist --dist-dir ${CMAKE_BINARY_DIR}
     )
