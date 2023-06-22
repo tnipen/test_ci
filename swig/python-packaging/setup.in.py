@@ -7,6 +7,7 @@ from distutils.core import setup, Extension
 from setuptools import setup, Extension
 import glob
 import itertools
+import numpy as np
 
 __version__ = '${PROJECT_VERSION}'
 
@@ -36,7 +37,7 @@ module = Extension('_gridpp',
         extra_compile_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         extra_link_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         library_dirs=["/usr/lib64"],
-        include_dirs=['./include']
+        include_dirs=['./include', np.get_include()]
 )
 
 setup (
