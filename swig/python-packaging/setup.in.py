@@ -8,7 +8,7 @@ from setuptools import setup, Extension
 import glob
 import itertools
 
-__version__ = '0.7.0.dev2'
+__version__ = '${PROJECT_VERSION}'
 
 # We need to swap the order of build_py and build_ext
 # https://stackoverflow.com/questions/12491328/python-distutils-not-include-the-swig-generated-module
@@ -32,7 +32,7 @@ class CustomInstall(install):
 module = Extension('_gridpp',
         sources=glob.glob('src/*.cpp') + ['gridppPYTHON_wrap.cxx'],
         # libraries=["armadillo"],
-        libraries=["blas"],
+        libraries=["lapack"],
         extra_compile_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         extra_link_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         library_dirs=["/usr/lib64"],
