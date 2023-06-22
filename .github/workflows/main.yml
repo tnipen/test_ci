@@ -19,7 +19,7 @@ jobs:
         env:
           CIBW_BUILD: cp36-manylinux_x86_64 cp36-win_amd64 cp36-macosx_x86_64
           CIBW_BEFORE_ALL_LINUX: yum install -y lapack-devel
-          CIBW_BEFORE_ALL_MACOS: brew reinstall gcc lapack && echo $PATH && alias gcc="cpp-13"
+          CIBW_BEFORE_ALL_MACOS: brew reinstall gcc lapack && echo $PATH && ln -s /usr/local/bin/cpp-13 /usr/local/bin/gcc && ls /usr/local/bin/gcc* && which gcc
           CIBW_BEFORE_ALL_WINDOWS: choco install -y lapack-devel
           CIBW_TEST_COMMAND: >
               python {project}/test.py
