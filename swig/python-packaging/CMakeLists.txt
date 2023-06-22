@@ -5,6 +5,7 @@ include_directories(${PYTHON_INCLUDE_PATH})
 # Files to install with Python
 file(GLOB CPP_INCLUDE_FILES ${CMAKE_SOURCE_DIR}/include/*.h)
 #file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/MANIFEST.in DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/pyproject.toml DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # Configure setup.py and copy to output directory
 set(SETUP_PY_IN ${CMAKE_CURRENT_SOURCE_DIR}/setup.in.py)
