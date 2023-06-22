@@ -8,11 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
-      - run: |
-          mkdir build &&
-          cd build &&
-          cmake .. &&
-          VERBOSE=1 make package-python
+      - run: bash swig/python-packaging/setup.sh
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
