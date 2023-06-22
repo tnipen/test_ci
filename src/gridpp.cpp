@@ -1,5 +1,6 @@
 #include "gridpp.h"
 #include <armadillo>
+#include <numpy/arrayobject.h>
 
 namespace {
     typedef arma::mat mattype;
