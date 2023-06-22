@@ -36,7 +36,7 @@ module = Extension('_gridpp',
         # libraries=["lapack"],
         extra_compile_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         extra_link_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
-        library_dirs=["/usr/lib64", "/usr/local/lib"],
+        library_dirs=["/usr/lib64", "/usr/local/lib", "/usr/local/opt/armadillo/lib"],
         include_dirs=['./include', np.get_include()]
 )
 
