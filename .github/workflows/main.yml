@@ -13,12 +13,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: ls
-        run: pwd && ls
+      - name: setup
+        run: bash setup.sh && ls
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.13.1
         env:
-          CIBW_BEFORE_ALL: bash setup.sh
           CIBW_BUILD: cp36-manylinux_x86_64 cp36-win_amd64 cp36-macosx_x86_64
           CIBW_BEFORE_ALL_LINUX: yum install -y lapack-devel
           CIBW_BEFORE_ALL_MACOS: brew reinstall gcc lapack && echo $PATH && ln -s /usr/local/bin/gcc-13 /usr/local/bin/gcc && ln -s /usr/local/bin/g++-13 /usr/local/bin/g++ && ls /usr/local/bin/gcc* && which gcc && which g++
