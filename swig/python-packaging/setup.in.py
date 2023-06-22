@@ -32,8 +32,8 @@ class CustomInstall(install):
 
 module = Extension('_gridpp',
         sources=glob.glob('src/*.cpp') + ['gridppPYTHON_wrap.cxx'],
-        # libraries=["armadillo"],
-        libraries=["lapack"],
+        libraries=["armadillo"],
+        # libraries=["lapack"],
         extra_compile_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         extra_link_args="-O3 -fPIC -fopenmp -fopenmp -std=c++11".split(),
         library_dirs=["/usr/lib64"],
