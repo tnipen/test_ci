@@ -8,8 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
-
-      - run: bash setup.sh
+      - run: |
+          mkdir build &&
+          cd build &&
+          cmake .. &&
+          VERBOSE=1 make package-python
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
@@ -24,7 +27,7 @@ jobs:
     strategy:
       matrix:
         # os: [ubuntu-20.04, windows-2019, macos-11]
-        os: [ubuntu-20.04]
+        os: [ubuntu-20.04, macos-11]
 
     steps:
       - uses: actions/checkout@v3
