@@ -44,10 +44,10 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_ARCHS_MACOS: x86_64 arm64
+          CIBW_ARCHS_MACOS: arm64
           CIBW_BUILD: cp39*
           CIBW_BEFORE_ALL_LINUX: yum install -y lapack-devel gsl-devel boost-devel armadillo-devel
-          CIBW_BEFORE_ALL_MACOS: brew reinstall gcc lapack boost armadillo && ls /usr/local/opt/armadillo && ls /usr/local/opt && ln -s /usr/local/bin/gcc-13 /usr/local/bin/gcc && ln -s /usr/local/bin/g++-13 /usr/local/bin/g++ && ls /usr/local/bin/gcc* && which gcc && which g++
+          CIBW_BEFORE_ALL_MACOS: arch -arm64 brew reinstall gcc lapack boost armadillo && ls /usr/local/opt/armadillo && ls /opt/homebrew/lib && ln -s /usr/local/bin/gcc-13 /usr/local/bin/gcc && ln -s /usr/local/bin/g++-13 /usr/local/bin/g++ && ls /usr/local/bin/gcc* && which gcc && which g++
           CIBW_BEFORE_ALL_WINDOWS: choco install -y lapack-devel
           CIBW_TEST_COMMAND: >
               python {project}/swig/python-packaging/test.py
