@@ -3,3 +3,4 @@ gridppPYTHON_wrap.cxx:
 
 clean:
 	rm gridppPYTHON_wrap.cxx gridpp.py
+
